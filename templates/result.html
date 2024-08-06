@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Diabetes Predictor</title>
+	    <style>
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+            
+body { 
+	width: 100%;
+	height:auto;
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
+	font-size: 18px;
+	text-align:center;
+	letter-spacing:1.2px;
+    background-image: url("../static/wall.jpg");
+    background-size: cover;
+
+}
+
+.results{
+ margin-top:150px;
+}
+
+
+</style>
+    </head>
+    <body>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Opps! You have DIABETES.</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='jethya-heart-attack.gif') }}" alt="Diabetes Image">
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Hurrah !!! You DON'T have diabetes.</span></h1>
+				<img class="gif1" src="{{ url_for('static', filename='letsparty-slapefam.gif') }}" alt="Not Diabetes Image">
+			{% endif %}
+		</div>
+
+		
+
+	</body>
+</html>
